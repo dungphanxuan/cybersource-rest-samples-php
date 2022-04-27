@@ -3,7 +3,7 @@
 * Purpose : passing Authentication config object to the configuration
 */
 namespace CyberSource;
-require_once __DIR__. DIRECTORY_SEPARATOR .'../vendor/autoload.php';
+require_once __DIR__ . DIRECTORY_SEPARATOR . '../vendor/autoload.php';
 
 class ExternalConfiguration
 {
@@ -94,31 +94,34 @@ class ExternalConfiguration
         return $config;
     }
 
-    function FutureDate($format){
-        if($format){
-            $rdate = date("Y-m-d",strtotime("+7 days"));
-            $retDate = date($format,strtotime($rdate));
-        }
-        else{
-            $retDate = date("Y-m",strtotime("+7 days"));
+    function FutureDate($format)
+    {
+        if ($format) {
+            $rdate = date("Y-m-d", strtotime("+7 days"));
+            $retDate = date($format, strtotime($rdate));
+        } else {
+            $retDate = date("Y-m", strtotime("+7 days"));
         }
         echo $retDate;
         return $retDate;
     }
 
-    function CallTestLogging($testId, $apiName, $responseMessage){
+    function CallTestLogging($testId, $apiName, $responseMessage)
+    {
         $runtime = date('d-m-Y H:i:s');
         $file = fopen("./CSV_Files/TestReport/TestResults.csv", "a+");
         fputcsv($file, array($testId, $runtime, $apiName, $responseMessage));
         fclose($file);
     }
 
-    function downloadReport($downloadData, $fileName){
-        $filePathName = __DIR__. DIRECTORY_SEPARATOR .$fileName;
+    function downloadReport($downloadData, $fileName)
+    {
+        $filePathName = __DIR__ . DIRECTORY_SEPARATOR . $fileName;
         $file = fopen($filePathName, "w");
         fwrite($file, $downloadData);
         fclose($file);
-        return __DIR__.'\\'.$fileName;
+        return __DIR__ . '\\' . $fileName;
     }
 }
+
 ?>

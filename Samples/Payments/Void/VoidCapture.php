@@ -5,40 +5,40 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . '../Capture/CapturePayment.php';
 
 function VoidCapture()
 {
-	$id = CapturePayment()[0]['id'];
+    $id = CapturePayment()[0]['id'];
 
-	$clientReferenceInformationArr = [
-			"code" => "test_void"
-	];
-	$clientReferenceInformation = new CyberSource\Model\Ptsv2paymentsidreversalsClientReferenceInformation($clientReferenceInformationArr);
+    $clientReferenceInformationArr = [
+        "code" => "test_void"
+    ];
+    $clientReferenceInformation = new CyberSource\Model\Ptsv2paymentsidreversalsClientReferenceInformation($clientReferenceInformationArr);
 
-	$requestObjArr = [
-			"clientReferenceInformation" => $clientReferenceInformation
-	];
-	$requestObj = new CyberSource\Model\VoidCaptureRequest($requestObjArr);
+    $requestObjArr = [
+        "clientReferenceInformation" => $clientReferenceInformation
+    ];
+    $requestObj = new CyberSource\Model\VoidCaptureRequest($requestObjArr);
 
 
-	$commonElement = new CyberSource\ExternalConfiguration();
-	$config = $commonElement->ConnectionHost();
-	$merchantConfig = $commonElement->merchantConfigObject();
+    $commonElement = new CyberSource\ExternalConfiguration();
+    $config = $commonElement->ConnectionHost();
+    $merchantConfig = $commonElement->merchantConfigObject();
 
-	$api_client = new CyberSource\ApiClient($config, $merchantConfig);
-	$api_instance = new CyberSource\Api\VoidApi($api_client);
+    $api_client = new CyberSource\ApiClient($config, $merchantConfig);
+    $api_instance = new CyberSource\Api\VoidApi($api_client);
 
-	try {
-		$apiResponse = $api_instance->voidCapture($requestObj, $id);
-		print_r(PHP_EOL);
-		print_r($apiResponse);
+    try {
+        $apiResponse = $api_instance->voidCapture($requestObj, $id);
+        print_r(PHP_EOL);
+        print_r($apiResponse);
 
-		return $apiResponse;
-	} catch (Cybersource\ApiException $e) {
-		print_r($e->getResponseBody());
-		print_r($e->getMessage());
-	}
+        return $apiResponse;
+    } catch (Cybersource\ApiException $e) {
+        print_r($e->getResponseBody());
+        print_r($e->getMessage());
+    }
 }
 
-if(!defined('DO_NOT_RUN_SAMPLES')){
-	echo "\nVoidCapture Sample Code is Running..." . PHP_EOL;
-	VoidCapture();
+if (!defined('DO_NOT_RUN_SAMPLES')) {
+    echo "\nVoidCapture Sample Code is Running..." . PHP_EOL;
+    VoidCapture();
 }
 ?>

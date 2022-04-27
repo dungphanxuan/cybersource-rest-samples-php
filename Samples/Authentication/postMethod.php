@@ -7,29 +7,28 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . '../../vendor/cybersource/rest-clie
 class PostMethod
 {
     public function postToServerMethod()
-    {        
+    {
         require_once __DIR__ . DIRECTORY_SEPARATOR . '../../Resources/ExternalConfiguration.php';
-		$merObj            = new CyberSource\ExternalConfiguration();
-		$merchantConfigObj = $merObj->merchantConfigObject();
-        
+        $merObj = new CyberSource\ExternalConfiguration();
+        $merchantConfigObj = $merObj->merchantConfigObject();
+
         $requestJsonPath = __DIR__ . DIRECTORY_SEPARATOR . '../../Resources/authRequest.json';
-        
-        $payload     = new CyberSource\Authentication\PayloadDigest\PayloadDigest();
+
+        $payload = new CyberSource\Authentication\PayloadDigest\PayloadDigest();
         $payloadData = $payload->getPayloadDigest($requestJsonPath, $merchantConfigObj);
-		
+
         $requestTarget = "/pts/v2/payments";
-        
-		$api_response  = list($response, $statusCode, $httpHeader) = null;
+
+        $api_response = list($response, $statusCode, $httpHeader) = null;
         try {
             $api_instance = new CybSource\ApiController();
             $api_response = $api_instance->apiController("POST", $payloadData, $requestTarget, $merchantConfigObj);
-			
+
             if (is_array($api_response)) {
                 print_r($api_response);
-            }            
-        }
-        catch (Exception $e) {	
-            print_r($e->getresponseBody());            
+            }
+        } catch (Exception $e) {
+            print_r($e->getresponseBody());
         }
     }
 }

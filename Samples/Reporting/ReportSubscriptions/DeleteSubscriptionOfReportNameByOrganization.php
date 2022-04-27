@@ -4,30 +4,30 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . '../../../Resources/ExternalConfigu
 
 function DeleteSubscriptionOfReportNameByOrganization()
 {
-	$reportName = "testrests_subcription_v1";
-	$organizationId = null;
+    $reportName = "testrests_subcription_v1";
+    $organizationId = null;
 
-	$commonElement = new CyberSource\ExternalConfiguration();
-	$config = $commonElement->ConnectionHost();
-	$merchantConfig = $commonElement->merchantConfigObject();
+    $commonElement = new CyberSource\ExternalConfiguration();
+    $config = $commonElement->ConnectionHost();
+    $merchantConfig = $commonElement->merchantConfigObject();
 
-	$api_client = new CyberSource\ApiClient($config, $merchantConfig);
-	$api_instance = new CyberSource\Api\ReportSubscriptionsApi($api_client);
+    $api_client = new CyberSource\ApiClient($config, $merchantConfig);
+    $api_instance = new CyberSource\Api\ReportSubscriptionsApi($api_client);
 
-	try {
-		$apiResponse = $api_instance->deleteSubscription($reportName, $organizationId);
-		print_r(PHP_EOL);
-		print_r($apiResponse);
+    try {
+        $apiResponse = $api_instance->deleteSubscription($reportName, $organizationId);
+        print_r(PHP_EOL);
+        print_r($apiResponse);
 
-		return $apiResponse;
-	} catch (Cybersource\ApiException $e) {
-		print_r($e->getResponseBody());
-		print_r($e->getMessage());
-	}
+        return $apiResponse;
+    } catch (Cybersource\ApiException $e) {
+        print_r($e->getResponseBody());
+        print_r($e->getMessage());
+    }
 }
 
-if(!defined('DO_NOT_RUN_SAMPLES')){
-	echo "\nDeleteSubscriptionOfReportNameByOrganization Sample Code is Running..." . PHP_EOL;
-	DeleteSubscriptionOfReportNameByOrganization();
+if (!defined('DO_NOT_RUN_SAMPLES')) {
+    echo "\nDeleteSubscriptionOfReportNameByOrganization Sample Code is Running..." . PHP_EOL;
+    DeleteSubscriptionOfReportNameByOrganization();
 }
 ?>

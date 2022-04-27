@@ -4,29 +4,29 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . '../../Resources/ExternalConfigurat
 
 function GetIndividualBatchFile()
 {
-	$id="20190110";
+    $id = "20190110";
 
-	$commonElement = new CyberSource\ExternalConfiguration();
-	$config = $commonElement->ConnectionHost();
-	$merchantConfig = $commonElement->merchantConfigObject();
+    $commonElement = new CyberSource\ExternalConfiguration();
+    $config = $commonElement->ConnectionHost();
+    $merchantConfig = $commonElement->merchantConfigObject();
 
-	$api_client = new CyberSource\ApiClient($config, $merchantConfig);
-	$api_instance = new CyberSource\Api\TransactionBatchesApi($api_client);
+    $api_client = new CyberSource\ApiClient($config, $merchantConfig);
+    $api_instance = new CyberSource\Api\TransactionBatchesApi($api_client);
 
-	try {
-		$apiResponse = $api_instance->getTransactionBatchId($id);
-		print_r(PHP_EOL);
-		print_r($apiResponse);
+    try {
+        $apiResponse = $api_instance->getTransactionBatchId($id);
+        print_r(PHP_EOL);
+        print_r($apiResponse);
 
-		return $apiResponse;
-	} catch (Cybersource\ApiException $e) {
-		print_r($e->getResponseBody());
-		print_r($e->getMessage());
-	}
+        return $apiResponse;
+    } catch (Cybersource\ApiException $e) {
+        print_r($e->getResponseBody());
+        print_r($e->getMessage());
+    }
 }
 
-if(!defined('DO_NOT_RUN_SAMPLES')){
-	echo "\nGetIndividualBatchFile Sample Code is Running..." . PHP_EOL;
-	GetIndividualBatchFile();
+if (!defined('DO_NOT_RUN_SAMPLES')) {
+    echo "\nGetIndividualBatchFile Sample Code is Running..." . PHP_EOL;
+    GetIndividualBatchFile();
 }
 ?>

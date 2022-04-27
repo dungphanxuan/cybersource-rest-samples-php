@@ -6,7 +6,6 @@
  *
  * @category Class
  * @package  CyberSource
- 
  */
 
 namespace CybSource\SampleApiClient\Model;
@@ -18,31 +17,30 @@ use \ArrayAccess;
  *
  * @category    Class
  * @package     CyberSource
- 
  */
 class V2creditsProcessingInformation implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
     /**
-      * The original name of the model.
-      * @var string
-      */
+     * The original name of the model.
+     * @var string
+     */
     protected static $ModelName = 'v2credits_processingInformation';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      * @var string[]
-      */
+     * Array of property to type mappings. Used for (de)serialization
+     * @var string[]
+     */
     protected static $Types = [
         'commerceIndicator' => 'string'
-        
+
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      * @var string[]
-      */
+     * Array of property to format mappings. Used for (de)serialization
+     * @var string[]
+     */
     protected static $Formats = [
         'commerceIndicator' => null
     ];
@@ -98,9 +96,6 @@ class V2creditsProcessingInformation implements ArrayAccess
         return self::$getters;
     }
 
-    
-
-    
 
     /**
      * Associative array for storing property values
@@ -130,7 +125,6 @@ class V2creditsProcessingInformation implements ArrayAccess
             $invalid_properties[] = "invalid value for 'commerceIndicator', the character length must be smaller than or equal to 20.";
         }
 
-       
 
         return $invalid_properties;
     }
@@ -147,7 +141,7 @@ class V2creditsProcessingInformation implements ArrayAccess
         if (strlen($this->container['commerceIndicator']) > 20) {
             return false;
         }
-        
+
         return true;
     }
 
@@ -177,10 +171,10 @@ class V2creditsProcessingInformation implements ArrayAccess
         return $this;
     }
 
-    
+
     /**
      * Returns true if offset exists. False otherwise.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return boolean
      */
     public function offsetExists($offset)
@@ -190,7 +184,7 @@ class V2creditsProcessingInformation implements ArrayAccess
 
     /**
      * Gets offset.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return mixed
      */
     public function offsetGet($offset)
@@ -200,8 +194,8 @@ class V2creditsProcessingInformation implements ArrayAccess
 
     /**
      * Sets value based on offset.
-     * @param  integer $offset Offset
-     * @param  mixed   $value  Value to be set
+     * @param integer $offset Offset
+     * @param mixed $value Value to be set
      * @return void
      */
     public function offsetSet($offset, $value)
@@ -215,7 +209,7 @@ class V2creditsProcessingInformation implements ArrayAccess
 
     /**
      * Unsets offset.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return void
      */
     public function offsetUnset($offset)

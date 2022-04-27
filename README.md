@@ -2,12 +2,13 @@
 
 [![Build Status](https://travis-ci.org/CyberSource/cybersource-rest-samples-php.svg?branch=master)](https://travis-ci.org/CyberSource/cybersource-rest-samples-php)
 
-This repository contains working code samples which demonstrate PHP integration with the CyberSource REST APIs through the [CyberSource PHP SDK](https://github.com/CyberSource/cybersource-rest-client-php).
- 
+This repository contains working code samples which demonstrate PHP integration with the CyberSource REST APIs through
+the [CyberSource PHP SDK](https://github.com/CyberSource/cybersource-rest-client-php).
 
 ## Using the Sample Code
 
-The samples are all completely independent and self-contained. You can analyze them to get an understanding of how a particular method works, or you can use the snippets as a starting point for your own project.
+The samples are all completely independent and self-contained. You can analyze them to get an understanding of how a
+particular method works, or you can use the snippets as a starting point for your own project.
 
 You can also run each sample directly from the command line.
 
@@ -16,7 +17,7 @@ You can also run each sample directly from the command line.
 * PHP 5.6+
 * Enable cURL PHP Extension
 * Enable JSON PHP Extension
-* Enable PHP_APCU PHP Extension. You will need to download it for your platform (Windows/Linux/Mac) 
+* Enable PHP_APCU PHP Extension. You will need to download it for your platform (Windows/Linux/Mac)
 * [CyberSource Account](https://developer.cybersource.com/api/developer-guides/dita-gettingstarted/registration.html)
 * [CyberSource API Keys](https://developer.cybersource.com/api/developer-guides/dita-gettingstarted/registration/createCertSharedKey.html)
 
@@ -27,6 +28,7 @@ You can also run each sample directly from the command line.
 ```bash
     git clone https://github.com/CyberSource/cybersource-rest-samples-php
 ```
+
 * Run composer with the "update" option in the root directory of the repository.
 
 ```bash
@@ -47,7 +49,8 @@ e.g.
 
 ### Installation Notes
 
-Note: If during "composer update", you get the error "composer failed to open stream invalid argument", go to your php.ini file (present where you have installed PHP), and uncomment the following lines:
+Note: If during "composer update", you get the error "composer failed to open stream invalid argument", go to your
+php.ini file (present where you have installed PHP), and uncomment the following lines:
 
 ```
     extension=php_openssl.dll
@@ -147,7 +150,10 @@ with the following code:
 
 ### Switching between the sandbox environment and the production environment
 
-CyberSource maintains a complete sandbox environment for testing and development purposes. This sandbox environment is an exact duplicate of our production environment with the transaction authorization and settlement process simulated. By default, this SDK is configured to communicate with the sandbox environment. To switch to the production environment, set the appropriate environment constant.  For example:
+CyberSource maintains a complete sandbox environment for testing and development purposes. This sandbox environment is
+an exact duplicate of our production environment with the transaction authorization and settlement process simulated. By
+default, this SDK is configured to communicate with the sandbox environment. To switch to the production environment,
+set the appropriate environment constant. For example:
 
 ```php
    // For TESTING use
@@ -156,12 +162,15 @@ CyberSource maintains a complete sandbox environment for testing and development
    // $this->runEnv = "api.cybersource.com";
 ```
 
-The [API Reference Guide](https://developer.cybersource.com/api/reference/api-reference.html) provides examples of what information is needed for a particular request and how that information would be formatted. Using those examples, you can easily determine what methods would be necessary to include that information in a request using this SDK.
+The [API Reference Guide](https://developer.cybersource.com/api/reference/api-reference.html) provides examples of what
+information is needed for a particular request and how that information would be formatted. Using those examples, you
+can easily determine what methods would be necessary to include that information in a request using this SDK.
 
 ### Logging
 
 [![Generic badge](https://img.shields.io/badge/LOGGING-NEW-GREEN.svg)](https://shields.io/)
 
-Since v0.0.24, a new logging framework has been introduced in the SDK. This new logging framework makes use of Monolog, and standardizes the logging so that it can be integrated with the logging in the client application.
+Since v0.0.24, a new logging framework has been introduced in the SDK. This new logging framework makes use of Monolog,
+and standardizes the logging so that it can be integrated with the logging in the client application.
 
 More information about this new logging framework can be found in this file : [Logging.md](Logging.md)

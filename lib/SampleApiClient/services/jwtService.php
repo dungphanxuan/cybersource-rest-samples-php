@@ -1,4 +1,5 @@
 <?php
+
 namespace CybSource;
 
 require_once __DIR__ . DIRECTORY_SEPARATOR . '../../../Resources/autoload.php';
@@ -7,13 +8,14 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . '../../SampleApiClient/connection/j
 
 class JwtService
 {
-	public function jwtService($method, $payload, $resourceUrl, $merchantConfig)
-	{
-		$getTok = new Authentication();
-		$getToken = $getTok->getToken($resourceUrl, $payload, $method, $merchantConfig); 
-		$conn = new JwtUrlConnection();
-		$data = $conn->getConnection($getToken, $resourceUrl, $payload, $method, $merchantConfig);
-		return $data;			
-	}
+    public function jwtService($method, $payload, $resourceUrl, $merchantConfig)
+    {
+        $getTok = new Authentication();
+        $getToken = $getTok->getToken($resourceUrl, $payload, $method, $merchantConfig);
+        $conn = new JwtUrlConnection();
+        $data = $conn->getConnection($getToken, $resourceUrl, $payload, $method, $merchantConfig);
+        return $data;
+    }
 }
+
 ?>

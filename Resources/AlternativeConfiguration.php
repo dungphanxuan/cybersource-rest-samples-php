@@ -3,7 +3,7 @@
 * Purpose : passing Authentication config object to the configuration
 */
 namespace CyberSource;
-require_once __DIR__. DIRECTORY_SEPARATOR .'../vendor/autoload.php';
+require_once __DIR__ . DIRECTORY_SEPARATOR . '../vendor/autoload.php';
 
 
 class ExternalConfiguration
@@ -41,10 +41,11 @@ class ExternalConfiguration
 
         $this->merchantConfigObject();
     }
+
     //creating merchant config object
     function merchantConfigObject()
     {
-		if (!isset($this->merchantConfig)) {
+        if (!isset($this->merchantConfig)) {
             $config = new \CyberSource\Authentication\Core\MerchantConfiguration();
             $config->setauthenticationType(strtoupper(trim($this->authType)));
             $config->setMerchantID(trim($this->merchantID));
@@ -86,32 +87,34 @@ class ExternalConfiguration
         return $config;
     }
 
-    function FutureDate($format){
-        if($format){
-            $rdate = date("Y-m-d",strtotime("+7 days"));
-                        $retDate = date($format,strtotime($rdate));
-                }
-                else{
-                        $retDate = date("Y-m",strtotime("+7 days"));
-                }
-                echo $retDate;
-                return $retDate;
+    function FutureDate($format)
+    {
+        if ($format) {
+            $rdate = date("Y-m-d", strtotime("+7 days"));
+            $retDate = date($format, strtotime($rdate));
+        } else {
+            $retDate = date("Y-m", strtotime("+7 days"));
         }
+        echo $retDate;
+        return $retDate;
+    }
 
-        function CallTestLogging($testId, $apiName, $responseMessage){
-                $runtime = date('d-m-Y H:i:s');
-                $file = fopen("./CSV_Files/TestReport/TestResults.csv", "a+");
-                fputcsv($file, array($testId, $runtime, $apiName, $responseMessage));
-                fclose($file);
-        }
+    function CallTestLogging($testId, $apiName, $responseMessage)
+    {
+        $runtime = date('d-m-Y H:i:s');
+        $file = fopen("./CSV_Files/TestReport/TestResults.csv", "a+");
+        fputcsv($file, array($testId, $runtime, $apiName, $responseMessage));
+        fclose($file);
+    }
 
-        function downloadReport($downloadData, $fileName){
-                $filePathName = __DIR__. DIRECTORY_SEPARATOR .$fileName;
-                $file = fopen($filePathName, "w");
-                fwrite($file, $downloadData);
-                fclose($file);
-                return __DIR__.'\\'.$fileName;
-        }
+    function downloadReport($downloadData, $fileName)
+    {
+        $filePathName = __DIR__ . DIRECTORY_SEPARATOR . $fileName;
+        $file = fopen($filePathName, "w");
+        fwrite($file, $downloadData);
+        fclose($file);
+        return __DIR__ . '\\' . $fileName;
+    }
 }
 
 ?>

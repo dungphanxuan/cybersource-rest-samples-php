@@ -6,7 +6,6 @@
  *
  * @category Class
  * @package  CyberSource
- 
  */
 
 namespace CybSource\SampleApiClient\Model;
@@ -18,30 +17,30 @@ use \ArrayAccess;
  *
  * @category    Class
  * @package     CyberSource
-*/
+ */
 class V2paymentsOrderInformationAmountDetails implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
     /**
-      * The original name of the model.
-      * @var string
-      */
+     * The original name of the model.
+     * @var string
+     */
     protected static $ModelName = 'v2payments_orderInformation_amountDetails';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      * @var string[]
-      */
+     * Array of property to type mappings. Used for (de)serialization
+     * @var string[]
+     */
     protected static $Types = [
         'totalAmount' => 'string',
         'currency' => 'string'
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      * @var string[]
-      */
+     * Array of property to format mappings. Used for (de)serialization
+     * @var string[]
+     */
     protected static $Formats = [
         'totalAmount' => null,
         'currency' => null
@@ -101,9 +100,6 @@ class V2paymentsOrderInformationAmountDetails implements ArrayAccess
         return self::$getters;
     }
 
-    
-
-    
 
     /**
      * Associative array for storing property values
@@ -119,7 +115,7 @@ class V2paymentsOrderInformationAmountDetails implements ArrayAccess
     {
         $this->container['totalAmount'] = isset($data['totalAmount']) ? $data['totalAmount'] : null;
         $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
-        
+
     }
 
     /**
@@ -139,7 +135,6 @@ class V2paymentsOrderInformationAmountDetails implements ArrayAccess
             $invalid_properties[] = "invalid value for 'currency', the character length must be smaller than or equal to 5.";
         }
 
-        
 
         return $invalid_properties;
     }
@@ -159,7 +154,7 @@ class V2paymentsOrderInformationAmountDetails implements ArrayAccess
         if (strlen($this->container['currency']) > 5) {
             return false;
         }
-        
+
         return true;
     }
 
@@ -214,10 +209,10 @@ class V2paymentsOrderInformationAmountDetails implements ArrayAccess
         return $this;
     }
 
-    
+
     /**
      * Returns true if offset exists. False otherwise.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return boolean
      */
     public function offsetExists($offset)
@@ -227,7 +222,7 @@ class V2paymentsOrderInformationAmountDetails implements ArrayAccess
 
     /**
      * Gets offset.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return mixed
      */
     public function offsetGet($offset)
@@ -237,8 +232,8 @@ class V2paymentsOrderInformationAmountDetails implements ArrayAccess
 
     /**
      * Sets value based on offset.
-     * @param  integer $offset Offset
-     * @param  mixed   $value  Value to be set
+     * @param integer $offset Offset
+     * @param mixed $value Value to be set
      * @return void
      */
     public function offsetSet($offset, $value)
@@ -252,7 +247,7 @@ class V2paymentsOrderInformationAmountDetails implements ArrayAccess
 
     /**
      * Unsets offset.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return void
      */
     public function offsetUnset($offset)

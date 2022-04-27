@@ -6,13 +6,14 @@
  *
  * @category Class
  * @package  CyberSource
- 
  */
 
 namespace CybSource\SampleApiClient\Model;
 
 use \ArrayAccess;
+
 require_once __DIR__ . DIRECTORY_SEPARATOR . '../controller/ObjectSerializer.php';
+
 /**
  * Request Class Doc Comment
  *
@@ -24,15 +25,15 @@ class Request implements ArrayAccess
     const DISCRIMINATOR = null;
 
     /**
-      * The original name of the model.
-      * @var string
-      */
+     * The original name of the model.
+     * @var string
+     */
     protected static $ModelName = 'request';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      * @var string[]
-      */
+     * Array of property to type mappings. Used for (de)serialization
+     * @var string[]
+     */
     protected static $Types = [
         'clientReferenceInformation' => '\CyberSource\Model\V2paymentsClientReferenceInformation',
         'processingInformation' => '\CyberSource\Model\V2paymentsProcessingInformation',
@@ -42,16 +43,16 @@ class Request implements ArrayAccess
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      * @var string[]
-      */
+     * Array of property to format mappings. Used for (de)serialization
+     * @var string[]
+     */
     protected static $Formats = [
         'clientReferenceInformation' => null,
         'processingInformation' => null,
         'paymentInformation' => null,
         'orderInformation' => null,
         'aggregatorInformation' => null
-        
+
     ];
 
     public static function Types()
@@ -117,9 +118,6 @@ class Request implements ArrayAccess
         return self::$getters;
     }
 
-    
-
-    
 
     /**
      * Associative array for storing property values
@@ -138,7 +136,7 @@ class Request implements ArrayAccess
         $this->container['paymentInformation'] = isset($data['paymentInformation']) ? $data['paymentInformation'] : null;
         $this->container['orderInformation'] = isset($data['orderInformation']) ? $data['orderInformation'] : null;
         $this->container['aggregatorInformation'] = isset($data['aggregatorInformation']) ? $data['aggregatorInformation'] : null;
-        
+
     }
 
     /**
@@ -250,7 +248,6 @@ class Request implements ArrayAccess
         return $this;
     }
 
-    
 
     /**
      * Gets aggregatorInformation
@@ -273,10 +270,10 @@ class Request implements ArrayAccess
         return $this;
     }
 
-    
+
     /**
      * Returns true if offset exists. False otherwise.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return boolean
      */
     public function offsetExists($offset)
@@ -286,7 +283,7 @@ class Request implements ArrayAccess
 
     /**
      * Gets offset.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return mixed
      */
     public function offsetGet($offset)
@@ -296,8 +293,8 @@ class Request implements ArrayAccess
 
     /**
      * Sets value based on offset.
-     * @param  integer $offset Offset
-     * @param  mixed   $value  Value to be set
+     * @param integer $offset Offset
+     * @param mixed $value Value to be set
      * @return void
      */
     public function offsetSet($offset, $value)
@@ -311,7 +308,7 @@ class Request implements ArrayAccess
 
     /**
      * Unsets offset.
-     * @param  integer $offset Offset
+     * @param integer $offset Offset
      * @return void
      */
     public function offsetUnset($offset)

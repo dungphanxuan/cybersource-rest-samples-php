@@ -4,7 +4,6 @@
  * Cybersource Payments REST API
  *
  * Move your business forward with the Cybersource Payments REST API
- 
  * @param string $class The fully-qualified class name.
  *
  * @return void
